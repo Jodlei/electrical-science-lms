@@ -1,0 +1,19 @@
+@import './common';
+
+//utils
+@import './utils/variables';
+@import './utils/visually-hidden';
+@import './utils/mixin';
+@import './utils/breakepoints';
+
+// base styles
+@import './base/reset';
+@import './base/container';
+@import './base/body';
+
+//components
+
+//layouts
+@import './layouts/header';
+@import './layouts/main';
+@import './layouts/footer';
