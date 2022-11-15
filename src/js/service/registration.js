@@ -35,10 +35,10 @@ function checkUserLogin() {
         window.location.href = 'index.html';
     }
     if (userIsLogin === 'false' || userIsLogin === null) {
-        if (location.pathname === '/registration.html') {
+        if (location.pathname.includes('/registration.html')) {
             return
         } else {
-                  window.location.href = 'registration.html';  
+          window.location.href = 'registration.html';  
         }
     }
 }
