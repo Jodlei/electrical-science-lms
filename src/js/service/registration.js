@@ -159,7 +159,7 @@ onAuthStateChanged(auth, user => {
     get(child(dbRef, `users/${uid}`))
       .then(snapshot => {
           if (snapshot.exists()) {
-              if (location.pathname === '/registration.html') {
+              if (location.pathname.includes('/registration.html')) {
                   return;
               } else {
                   refs.userName.textContent = snapshot.val().username || 'Anonymus'    
