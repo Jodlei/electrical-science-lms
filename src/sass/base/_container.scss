@@ -4,12 +4,9 @@
   padding-left: 15px;
   padding-right: 15px;
 
-  @include tablet {
-    width: $tablet;
+  @include tablet-mobile {
+    width: $tablet-mobile;
     padding-left: 32px;
     padding-right: 32px;
-  }
-  @include desktop {
-    width: $desktop;
   }
 }
