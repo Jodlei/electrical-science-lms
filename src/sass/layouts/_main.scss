@@ -1,0 +1,43 @@
+.section-main {
+}
+.userbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  width: 385px;
+  height: 100vh;
+  background-color: white;
+
+  border-radius: 24px;
+}
+
+.userbar-top {
+}
+.userbar-top__photo {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+.userbar-top__name {
+  margin-top: 20px;
+  text-align: center;
+}
+.userbar-bottom {
+  margin-top: 50px;
+}
+
+.userbar-bottom__title {
+}
+
+.userbar-bottom__navigation {
+  margin-top: 20px;
+}
+
+.navigation-list {
+}
+.navigation-list__item {
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+}
