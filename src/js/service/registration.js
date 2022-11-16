@@ -29,22 +29,6 @@ refs.registrationForm?.addEventListener('submit', logInUser);
  
 refs.clickRegistrationBtn?.addEventListener('click', handleRegistration)
 
-function checkUserLogin() {
-    const userIsLogin = localStorage.getItem('userIsLogin')
-    if (location.pathname === '/registration.html' && userIsLogin === 'true') {
-        window.location.href = 'index.html';
-    }
-    if (userIsLogin === 'false' || userIsLogin === null) {
-        if (location.pathname.includes('/registration.html')) {
-            return
-        } else {
-          window.location.href = 'registration.html';  
-        }
-    }
-}
-  
-checkUserLogin()
-
 function handleRegistration(e) {
     e.preventDefault()
     if (refs.clickRegistrationBtn.textContent === 'Log in') {
@@ -76,7 +60,6 @@ function signUpUser(e) {
   createUserWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       // Signed in
-        localStorage.setItem('userIsLogin', true)
         const user = userCredential.user;
       set(ref(database, 'users/' + user.uid), {
         username,
@@ -117,8 +100,6 @@ function logInUser(e) {
     .then(userCredential => {
       // Signed in
         
-        localStorage.setItem('userIsLogin', true);
-
       const user = userCredential.user;
       const uid = user.uid;
 
@@ -158,13 +139,17 @@ onAuthStateChanged(auth, user => {
     const dbRef = ref(getDatabase());
     get(child(dbRef, `users/${uid}`))
       .then(snapshot => {
-          if (snapshot.exists()) {
-              if (location.pathname.includes('/registration.html')) {
-                  return;
-              } else {
-                  refs.userName.textContent = snapshot.val().username || 'Anonymus'    
-              }
+        if (snapshot.exists()) {
+             if (location.pathname.includes('/registration.html')) {
+            window.location.href = 'index.html';
+            }
+            if (location.pathname.includes('/') || location.pathname.includes('index.html')) {
+              refs.userName.textContent = snapshot.val().username || 'Anonymus'   
               console.log(snapshot.val())
+                  return
+                } else {
+                    window.location.href = 'index.html';
+                }
         } else {
           console.log('No data available');
         }
@@ -174,10 +159,34 @@ onAuthStateChanged(auth, user => {
       });
     // ...
   } else {
+      if (location.pathname.includes('/registration.html')) {
+            return
+        } else {
+          window.location.href = 'registration.html';  
+        }
     // User is signed out
     // ...
   }
 });
+
+
+// function checkUserLogin() {
+
+ 
+
+//     if (userIsLogin === 'false' || userIsLogin === null) {
+//         if (location.pathname.includes('/registration.html')) {
+//             return
+//         } else {
+//           window.location.href = 'registration.html';  
+//         }
+//     }
+// }
+  
+// checkUserLogin()
+
+
+
 
 refs.logOutBtn?.addEventListener('click', e => {
      if (e.target.nodeName === 'LI' || e.target.nodeName === 'UL') {
@@ -186,7 +195,6 @@ refs.logOutBtn?.addEventListener('click', e => {
   signOut(auth)
     .then(() => {
       // Sign-out successful.
-        localStorage.setItem('userIsLogin', false);
       Notify.success('Successful logged out.', {
         timeout: 1000,
       });
@@ -199,3 +207,4 @@ refs.logOutBtn?.addEventListener('click', e => {
       });
     });
 });
+
