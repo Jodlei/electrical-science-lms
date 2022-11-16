@@ -1,28 +1,36 @@
 .section-registration {
+  min-height: 100vh;
+  background-color: rgb(236, 239, 241);
+  background-image: url(../images/background-image-login.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.logo {
+  position: absolute;
+  top: 32;
+  left: 64;
 }
 .registration-box {
   display: flex;
+  min-height: 100vh;
   flex-direction: column;
   justify-content: center;
-  margin-left: auto;
   margin-right: auto;
-
-  padding: 32px 64px;
-
+  padding: 70px 64px;
   min-width: 200px;
   width: 486px;
-  height: 743px;
-
-  border: 2px solid gray;
   background-color: white;
-  border-radius: 24px;
 }
 
 .registration-box__title {
   text-align: center;
+  align-self: start;
   font-weight: 700;
   font-size: 32px;
   line-height: 1.22;
+  margin-bottom: 20px;
 }
 
 .registration-form {
@@ -35,14 +43,16 @@
 .input {
   background: #ffffff;
   height: 30px;
-  border-radius: 10px;
+  border-radius: 12px;
+  border: 1px solid rgb(117, 117, 117);
+  width: 100%;
+  min-height: 46px;
 
   &::placeholder {
     padding: 10px;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.35;
-
     color: #828282;
   }
   &:not(:first-child) {
@@ -68,9 +78,13 @@
 .registration-form__submit-btn,
 .registration-form__login-btn {
   margin-top: 10px;
-  min-width: 130px;
+  width: 110px;
   height: 44px;
-  padding: 14px;
+  display: inline-flex;
+  padding: calc(11px) calc(15px);
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 500;
