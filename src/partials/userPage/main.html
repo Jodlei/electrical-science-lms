@@ -1,5 +1,5 @@
 <section class="section-main">
-  <div class="userbar">
+  <aside class="userbar">
     <div class="userbar-top">
       <img
         class="userbar-top__photo"
@@ -12,10 +12,9 @@
       <h1 class="userbar-bottom__title">Dashboard</h1>
       <nav class="userbar-bottom__navigation">
         <ul class="list navigation-list">
-          <li class="navigation-list__item">Заняття</li>
-          <li class="navigation-list__item">Групи</li>
+          <li class="navigation-list__item">Конспект</li>
           <li class="navigation-list__item">Матеріали</li>
-          <li class="navigation-list__item">Grades</li>
+          <li class="navigation-list__item">Тестування</li>
           <li class="navigation-list__item">Налаштування</li>
           <li class="navigation-list__item">
             <a
@@ -27,5 +26,11 @@
         </ul>
       </nav>
     </div>
-  </div>
+    <button type="button" class="sidebar__open-close-btn" data-sidebar-button>
+      <svg class="sidebar_menu-icons" width="25" height="25">
+        <use class="sidebar_open-icon" href=""></use>
+        <use class="sidebar_close-icon" href=""></use>
+      </svg>
+    </button>
+  </aside>
 </section>
